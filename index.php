@@ -8,9 +8,6 @@
   </head>
 <body>
 <?php include_once('navigation.php') ?>
-    <div class="position-absolute top-50 start-50 translate-middle">
-        <div><button>Know Your Gun</button></div>
-        <div><button>Guess Your Gun</button></div>
-    </div>
+  <h1>Soon</h1>
 </body>
 </html>

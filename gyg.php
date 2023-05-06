@@ -28,7 +28,7 @@
                 <table class="table table-striped">
                     <?php foreach( $firearms as $key => $firearm ) { ?>
                             <tr>
-                                <td colspan="2"><img src="<?= $firearm['img'] ?>" alt=""></td>
+                                <td colspan="2"><img src="imgs/<?= $firearm['img'] ?>" alt=""></td>
                                 <tr>
                                 <td><button><?= $firearm['fa_name'] ?></button></td>
                                 <td><button><?= $firearm['fa_name'] ?></button></td>

@@ -30,18 +30,19 @@
                     <thead>
                         <tr>
                             <th>Img</th>
-                            <th>Name</th>
-                            <th>Caliber</th>
-                            <th>Developing country</th>
-                            <th>design year</th>
+                            <th>Name/Caliber</th>
+                            <th>Developing country/Design year</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach( $firearms as $key => $firearm ) { ?>
                             <tr>
-                                <td><?= $firearm['img'] ?></td>
+                                <td rowspan="2"><img src="imgs/<?= $firearm['img'] ?>" alt="<?= $firearm['img'] ?>" width="300px" heigt="100px"></td>
                                 <td><?= $firearm['fa_name'] ?></td>
                                 <td><?= $firearm['ca_name'] ?></td>
+                            </tr>
+                            <tr>
+                               
                                 <td><?= $firearm['co_name'] ?></td>
                                 <td><?= $firearm['design_year'] ?></td>
                             </tr>
