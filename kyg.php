@@ -10,6 +10,15 @@
     <?php include_once('navigation.php') ?>
 
     <div class="container">
+        <?php
+            session_start();
+            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+            {?>
+                <p>You are logged in as <?php echo $_SESSION['username'];?>.</p>
+                
+
+        <?php } ?>
+        
         <h2>Know Your Gun</h2>
 
         <?php 
