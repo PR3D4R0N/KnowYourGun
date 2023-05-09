@@ -5,3 +5,4 @@ $menu = array(
     array('text' => 'KnowYourGun', 'link' => '/KnowYourGun/kyg.php'),
     array('text' => 'GuessYourGun', 'link' => '/KnowYourGun/gyg.php'),
 );
+
