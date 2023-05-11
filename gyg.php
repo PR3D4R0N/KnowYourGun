@@ -18,8 +18,12 @@
 
             $db_name = 'knowyourgun';
             $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
-            $r1= random_int(1,3);
-            $result = $dbh->query("SELECT firearm.img, firearm.fa_name FROM firearm WHERE firearm.firearm_id=$r1 LIMIT 1"); 
+            $r1= random_int(1,13);
+            $r2= random_int(1,13);
+            $r3= random_int(1,13);
+            $r4= random_int(1,13);
+
+            $result = $dbh->query("SELECT firearm.img, firearm.fa_name FROM firearm"); 
             $firearms = $result->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
@@ -28,14 +32,14 @@
                 <table class="table table-striped">
                     <?php foreach( $firearms as $key => $firearm ) { ?>
                             <tr>
-                                <td colspan="2"><img src="imgs/<?= $firearm['img'] ?>" alt=""></td>
+                                <td align="center" colspan="2"><img src="imgs/<?= $firearm['img'] ?>" alt="" height="30%" width="50%"></td>
                                 <tr>
-                                <td><button><?= $firearm['fa_name'] ?></button></td>
-                                <td><button><?= $firearm['fa_name'] ?></button></td>
+                                <td align="center"><button><?= $firearm['fa_name'] ?></button></td>
+                                <td align="center"><button><?= $firearm['fa_name'] ?></button></td>
                                 </tr>
                                 <tr>
-                                <td><button><?= $firearm['fa_name'] ?></button></td>
-                                <td><button><?= $firearm['fa_name'] ?></button></td>
+                                <td align="center"><button ><?= $firearm['fa_name'] ?></button></td>
+                                <td align="center"><button><?= $firearm['fa_name'] ?></button></td>
                                 </tr>
                             </tr>
                         <?php } ?>
