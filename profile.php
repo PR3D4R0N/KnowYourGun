@@ -20,7 +20,18 @@
         $confirm_password = $_POST["confirm-password"];
         $aboutMe = $_POST["aboutMe"];
         $avatar = $_POST["avatar"];
+        $FixAboutMe = "";
+        $length = strlen($aboutMe);
+        for ($i = 0; $i<$length; $i++)
+        {
+            if ($aboutMe[$i] == "'")
+            {
+                $FixAboutMe .= "\\";
+            }
+            $FixAboutMe.=$aboutMe[$i];
+        }
 
+        $aboutMe = $FixAboutMe;
         //hashelt jelszó lekérdezése
         $sql = "SELECT password FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
@@ -80,6 +91,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
     <?php include_once('navigation.php') ?>
@@ -103,6 +115,7 @@
                     <select name="avatar" id="avatarChoose" onclick="getSelectedValue()" class="mt-4">
                             <option value="none.jpg">None</option>  
                             <option value="ArthurMorgan.jpg">Arthur Morgan</option>
+                            <option value="CaptainPrice.jpg">Captain Price</option>
                             <option value="cat1.jpg">Cat 1</option>
                             <option value="cat2.jpg">Cat 2</option>
                             <option value="cat3.jpg">Cat 3</option>
@@ -110,6 +123,8 @@
                             <option value="dog2.jpg">Dog 2</option>
                             <option value="dog3.jpg">Dog 3</option>
                             <option value="DutchVanDerLinde.jpg">Dutch Van Der Linde</option>
+                            <option value="horse1.jpg">Horse 1</option>
+                            <option value="horse2.jpg">Horse 2</option>
                             <option value="IronMan.jpg">Iron Man</option>
                             <option value="JohnMarston.jpg">John Marston</option>
                             <option value="LeonSKennedy.jpg">Leon S. Kennedy</option>
@@ -120,6 +135,7 @@
                             <option value="SebastianCastellanos.jpg">Sebastian Castellanos</option> 
                             <option value="SebastianCastellanos2.jpg">Sebastian Castellanos 2</option> 
                             <option value="Umiko.jpg">Umiko</option> 
+                            <option value="Worms.jpg">Worms</option> 
                             
                     </select>
                 </div>
@@ -147,23 +163,23 @@
                 <?php } ?>
                  <!-- Current Password -->
                  <div>
-                    <label class="form-label mt-1">Current password</label>
+                    <label class="form-label mt-1 fs-3">Current password</label>
                     <input name="current-password" type="password" class="form-control" placeholder="Enter your password">
                 </div>
                 
                  <!--About me -->
                 <div>
-                    <label class="form-label mt-1">About me</label>
-                    <textarea name="aboutMe" class="form-control" placeholder="<?php echo $_SESSION['aboutme'] ?> "><?php echo $_SESSION['aboutme'] ?></textarea>
+                    <label class="form-label mt-1 fs-3">About me (255 characters are allowed.)</label>
+                    <textarea name="aboutMe" maxlength="255" class="form-control" placeholder="<?php echo $_SESSION['aboutme'] ?> "><?php echo $_SESSION['aboutme'] ?></textarea>
                  </div>
                  <!-- Change password-->
                  <div>
                     <h2 class="mt-3">Change password</h2>
-                    <label class="form-label mt-1">New password</label>
-                    <input name="new_password" type="password" class="form-control" placeholder="Enter your new password">
+                    <label class="form-label mt-1 fs-3">New password</label>
+                    <input name="new_password" type="password" class="form-control" placeholder="Enter your new password" minlength="8">
                 </div>
                 <div>
-                    <label class="form-label mt-1">Confirm password</label>
+                    <label class="form-label mt-1 fs-3">Confirm password</label>
                     <input name="confirm-password" type="password" class="form-control" placeholder="Confirm your password">
                 </div>
                 <!-- Apply changes -->
