@@ -10,15 +10,15 @@
     <?php include_once('navigation.php') ?>
 
     <div class="container">
-    <?php
-            session_start();
+        <?php
+            //session_start();
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
             {?>
                 <p>You are logged in as <?php echo $_SESSION['username'];?>.</p>
                 
 
-        <?php } ?>
-        <h2>Guess Your Gun</h2>
+        <?php } else { header("location: smeagol.php"); }?>
+        <h2 align="center">Guess Your Gun</h2>
 
         <?php 
             // Get firearms.
@@ -52,9 +52,11 @@
                                 </tr>
                             </tr>
                         <?php } ?>
-                  </table>
-               </div>
-              </div>                    
+                </table>
+            </div>
+        </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="button.js" type="module"></script>
+  </body>
 </html>
