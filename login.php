@@ -1,4 +1,5 @@
 <?php
+require_once("config.inc.php");
 //ellenőrizzük, hogy a felhasználó be van-e jelentkezve
 //session_start();
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
@@ -9,11 +10,8 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 ?>
 <?php
 
-//database connection
-$servername = 'localhost';
-$username = 'knowyourgun';
-$password = '/pJNmtLq[e4g[qXp';
-$dbname = 'knowyourgun';
+
+
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn)

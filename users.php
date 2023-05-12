@@ -1,3 +1,5 @@
+<?php require_once("config.inc.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +27,7 @@
             $db_pass = '/pJNmtLq[e4g[qXp';
 
             $db_name = 'knowyourgun';
-            $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
+            $dbh = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
             $result = $dbh->query("SELECT * FROM users ORDER BY username");
             $users = $result->fetchAll(PDO::FETCH_ASSOC);
 

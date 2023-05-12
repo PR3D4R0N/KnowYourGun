@@ -27,7 +27,7 @@
             $db_pass = '/pJNmtLq[e4g[qXp';
 
             $db_name = 'knowyourgun';
-            $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
+            $dbh = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
             $result = $dbh->query("SELECT firearm.img, firearm.fa_name, caliber.ca_name, country.co_name, firearm.design_year FROM firearm INNER JOIN caliber ON firearm.caliber_id=caliber.caliber_id INNER JOIN country ON country.country_id=firearm.dev_country_id"); 
             $firearms = $result->fetchAll(PDO::FETCH_ASSOC);
         ?>
