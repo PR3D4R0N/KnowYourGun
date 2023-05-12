@@ -23,38 +23,38 @@
         <?php 
             // Get firearms.
             $db_pass = '/pJNmtLq[e4g[qXp';
-
             $db_name = 'knowyourgun';
             $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
 
-                $rand=random_int(1,21);
-            $result = $dbh->query("SELECT firearm.img, firearm.fa_name FROM firearm"); 
-            $firearms = $result->fetchAll(PDO::FETCH_ASSOC);
+              
+            $getlength = $dbh->query("SELECT firearm.img, firearm.firearm_id, firearm.fa_name FROM firearm"); 
+            $firearms = $getlength->fetchAll(PDO::FETCH_ASSOC);
             
-            ?>
-              <div class="row">
-            <div class="col-12">
-                <table class="table table-striped">
-                    <?php foreach( $firearms as $key => $firearm ) { ?>
-                            <tr> 
-                                <td align="center" colspan="2"><img src="imgs/<?= $firearm['img'] ?>" alt="" height="30%" width="50%">
-                            </td>
-                              <tr>
+              $rand=random_int(1,count($firearms));
+              
 
-                                <td align="center"><button><?= $firearm['fa_name'] ?></button></td>
-                                <td align="center"><button><?= $firearm['fa_name'] ?></button></td>
-                              </tr>
-                              <tr>
-                                <td align="center"><button ><?= $firearm['fa_name'] ?></button></td>
-                                <td align="center"><button><?= $firearm['fa_name'] ?></button></td>
-                              </tr>
+              $result = $dbh->query("SELECT firearm.img, firearm.firearm_id, firearm.fa_name FROM firearm where firearm.firearm_id=$rand limit 1"); 
+              $firearms =$result
+            ?>
+
+           
+
+              <div class="row">
+               <div class="col-12">
+                <table class="table">
+                    
+                <?php foreach( $firearms as $key => $firearm ) { ?>
+                            <tr>
+                                <td colspan="2"><img src="imgs/<?= $firearm['img'] ?>" alt="<?= $firearm['fa_name'] ?>" height="40%" width="60%"><?= $firearm['fa_name'] ?></td>
+                                <tr>
+                                <td><form name="verify" onsubmit="return verifyGuess(<?= $firearm['fa_name'] ?>)"><input id="guess" type="text" name="guess" ></td>
+                                <td><input id="send" type="submit" value="Guess"></form></td>
+                                </tr>
                             </tr>
                         <?php } ?>
-                </table>
-            </div>
-        </div>
-
+                  </table>
+               </div>
+              </div>                    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="button.js" type="module"></script>
-  </body>
 </html>
