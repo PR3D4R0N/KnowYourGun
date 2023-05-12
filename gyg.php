@@ -1,3 +1,4 @@
+<?php require_once("config.inc.php"); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,7 +26,7 @@
             // Get firearms.
             $db_pass = '/pJNmtLq[e4g[qXp';
             $db_name = 'knowyourgun';
-            $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
+            $dbh = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
 
               
             $getlength = $dbh->query("SELECT firearm.img, firearm.firearm_id, firearm.fa_name FROM firearm"); 
