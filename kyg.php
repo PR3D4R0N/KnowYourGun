@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KnowYourGun</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  </head>
+    <link href="style.css" rel="stylesheet"/>
+</head>
   <body>
     <?php include_once('navigation.php') ?>
 
-    <div class="container">
+    <div class="container transparent_white_background">
         <?php
             //session_start();
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
@@ -26,7 +27,7 @@
             $db_pass = '/pJNmtLq[e4g[qXp';
 
             $db_name = 'knowyourgun';
-            $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
+            $dbh = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
             $result = $dbh->query("SELECT firearm.img, firearm.fa_name, caliber.ca_name, country.co_name, firearm.design_year FROM firearm INNER JOIN caliber ON firearm.caliber_id=caliber.caliber_id INNER JOIN country ON country.country_id=firearm.dev_country_id"); 
             $firearms = $result->fetchAll(PDO::FETCH_ASSOC);
         ?>

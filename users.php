@@ -1,3 +1,5 @@
+<?php require_once("config.inc.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
     <?php include_once('navigation.php') ?>
-    <div class="container">
+    <div class="container transparent_white_background">
     <?php
             //session_start();
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
@@ -24,7 +27,7 @@
             $db_pass = '/pJNmtLq[e4g[qXp';
 
             $db_name = 'knowyourgun';
-            $dbh = new PDO("mysql:host=localhost;dbname=$db_name", $db_name, $db_pass);
+            $dbh = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
             $result = $dbh->query("SELECT * FROM users ORDER BY username");
             $users = $result->fetchAll(PDO::FETCH_ASSOC);
 

@@ -1,0 +1,13 @@
+body {
+    background-image: url("background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.transparent_white_background {
+    background-color: white;
+    opacity: 0.9;
+}
+
+
+

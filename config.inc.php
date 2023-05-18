@@ -1,5 +1,10 @@
 
 <?php
+//database connection
+$servername = 'localhost';
+$username = 'knowyourgun';
+$password = '/pJNmtLq[e4g[qXp';
+$dbname = 'knowyourgun';
 //ellenőrizzük, hogy a felhasználó be van-e jelentkezve
 session_start();
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
