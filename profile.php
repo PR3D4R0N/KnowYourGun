@@ -1,10 +1,6 @@
 <?php
     require_once('config.inc.php');
     //database connection
-    $servername = 'localhost';
-    $username = 'knowyourgun';
-    $password = '/pJNmtLq[e4g[qXp';
-    $dbname = 'knowyourgun';
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if (!$conn)
