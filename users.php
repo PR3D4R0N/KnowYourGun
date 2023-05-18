@@ -24,9 +24,6 @@
 
         <?php 
             // Get users.
-            $db_pass = '/pJNmtLq[e4g[qXp';
-
-            $db_name = 'knowyourgun';
             $dbh = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
             $result = $dbh->query("SELECT * FROM users ORDER BY username");
             $users = $result->fetchAll(PDO::FETCH_ASSOC);
