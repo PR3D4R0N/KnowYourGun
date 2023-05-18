@@ -1,11 +1,15 @@
-function verifyGuess(a)
+//var guessInput = document.getElementById("guess");
+function verifyGuess(a, b)
 {
+  $points=b;
 var guessInput = document.getElementById("guess");
-  if(guess.value===a)
+  if(guessInput===a)
    {
-    alert(ok);
+    $points++;
    }else{                                     
-    alert(fail);
-   }                        
+    
+   }         
+   console.log($points);
+   return $points               
 }
 

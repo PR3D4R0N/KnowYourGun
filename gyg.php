@@ -34,9 +34,9 @@
               
 
               $result = $dbh->query("SELECT firearm.img, firearm.firearm_id, firearm.fa_name FROM firearm where firearm.firearm_id=$rand limit 1"); 
-              $firearms =$result
+              $firearms =$result->fetchAll(PDO::FETCH_ASSOC);
             ?>
-
+                
            
 
               <div class="row">
@@ -56,6 +56,20 @@
             </div>
         </div>
 
+   <script>     function verifyGuess(a, b)
+{
+  $points=b;
+var guessInput = document.getElementById("guess");
+  if(guessInput===a)
+   {
+    $points++;
+   }else{                                     
+    
+   }         
+   console.log($points);
+   return $points               
+}
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="button.js" type="module"></script>
   </body>
